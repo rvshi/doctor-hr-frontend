@@ -10,7 +10,11 @@ const Menubar = () => {
                 <Typography
                     align="center"
                     variant="title"
-                    color="inherit">
+                    color="inherit"
+                    style={{
+                        width: '100%'
+                    }}
+                >
                     Heart Rate Dashboard
                 </Typography>
             </Toolbar>
