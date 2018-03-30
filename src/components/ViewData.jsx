@@ -9,6 +9,7 @@ import Typography from 'material-ui/Typography';
 import Icon from 'material-ui/Icon';
 
 import DataTable from './DataTable';
+import DataPlot from './DataPlot';
 
 export default class ViewData extends React.Component {
     constructor(props) {
@@ -42,7 +43,7 @@ export default class ViewData extends React.Component {
             <div style={styles.wrapper} >
                 <Grid container spacing={16}>
                     <Grid item xs={12}>
-                        <Paper elevation={2}
+                        <Paper elevation={styles.elevation}
                             style={styles.paper}>
                             <form noValidate autoComplete="off">
                                 <Icon>remove_red_eye</Icon> <Icon>favorite_border</Icon>
@@ -72,11 +73,30 @@ export default class ViewData extends React.Component {
                             </form>
                         </Paper>
                     </Grid>
-                    {this.state.data && <Grid item xs={12}>
-                        <Paper elevation={2}>
-                            <DataTable data={this.state.data} />
-                        </Paper>
-                    </Grid>}
+                    {this.state.data &&
+                        <Grid item xs={12}>
+                            <Paper elevation={styles.elevation}
+                                style={{
+                                    padding: '24px 0'
+                                }}>
+                                <Grid container spacing={16}>
+                                    <Grid item xs={12}>
+                                        <Typography
+                                            variant="subheading"
+                                        >Heart Rate vs. Time</Typography>
+                                    </Grid>
+                                    <Grid item xs={12}>
+                                        <DataPlot data={this.state.data} />
+                                    </Grid>
+                                </Grid>
+                            </Paper>
+                        </Grid>}
+                    {this.state.data &&
+                        <Grid item xs={12}>
+                            <Paper elevation={styles.elevation}>
+                                <DataTable data={this.state.data} />
+                            </Paper>
+                        </Grid>}
                 </Grid>
             </div >
         )

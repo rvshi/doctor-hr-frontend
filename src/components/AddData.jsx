@@ -39,7 +39,7 @@ export default class AddData extends React.Component {
             <div style={styles.wrapper} >
                 <Grid container spacing={16}>
                     <Grid item xs={12}>
-                        <Paper elevation={2}
+                        <Paper elevation={styles.elevation}
                             style={styles.paper}>
                             <form noValidate autoComplete="off">
                                 <Icon>add_circle</Icon> <Icon>favorite_border</Icon>

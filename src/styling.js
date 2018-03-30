@@ -10,6 +10,7 @@ export const theme = createMuiTheme({
 });
 
 export const styles = {
+  elevation: 1,
   wrapper: {margin: '24px auto', maxWidth: 450, textAlign: 'center'},
   paper: {padding: '24px 50px'},
   items: {margin: '16px auto', display: 'block'},
