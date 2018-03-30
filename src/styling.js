@@ -11,8 +11,8 @@ export const theme = createMuiTheme({
 
 export const styles = {
   elevation: 1,
-  wrapper: {margin: '24px auto', maxWidth: 450, textAlign: 'center'},
-  paper: {padding: '24px 50px'},
+  wrapper: {margin: '24px auto', maxWidth: 600, textAlign: 'left'},
+  paper: {padding: '24px 48px'},
   items: {margin: '16px auto', display: 'block'},
   placeholder: {width: '100%', height: 100}
 }

@@ -10,7 +10,8 @@ import { endpoints } from '../api.js';
 const style = {
     code: {
         fontFamily: 'monospace',
-        textAlign: 'left'
+        textAlign: 'left',
+        marginBottom: 16
     },
     item: {
         margin: '16px auto'

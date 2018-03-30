@@ -7,7 +7,7 @@ import Button from 'material-ui/Button';
 import TextField from 'material-ui/TextField';
 import Typography from 'material-ui/Typography';
 import Icon from 'material-ui/Icon';
-
+import Divider from 'material-ui/Divider';
 import DataTable from './DataTable';
 import DataPlot from './DataPlot';
 
@@ -32,6 +32,7 @@ export default class ViewData extends React.Component {
     getData = () => getData(this.state.email, (res) => {
         if (res.status === 200) {
             this.setState({ "data": res.data.data.reverse() });
+            this.props.notify(`Data for ${this.state.email} loaded.`)
         } else {
             this.props.notify('User not found.')
         }
@@ -40,11 +41,11 @@ export default class ViewData extends React.Component {
     render = () => {
         const styles = this.props.styles;
         return (
-            <div style={styles.wrapper} >
-                <Grid container spacing={16}>
-                    <Grid item xs={12}>
-                        <Paper elevation={styles.elevation}
-                            style={styles.paper}>
+            <div style={styles.wrapper}>
+                <Paper elevation={styles.elevation}
+                    style={styles.paper}>
+                    <Grid container spacing={24}>
+                        < Grid item xs={12}>
                             <form noValidate autoComplete="off">
                                 <Icon>remove_red_eye</Icon> <Icon>favorite_border</Icon>
                                 <Typography
@@ -53,7 +54,6 @@ export default class ViewData extends React.Component {
                                 >
                                     View Heart Rate Data
                                 </Typography>
-
                                 <TextField
                                     label="Email"
                                     value={this.state.email}
@@ -63,7 +63,6 @@ export default class ViewData extends React.Component {
                                     style={styles.items}
                                 />
                                 <Button
-                                    variant="raised"
                                     color="secondary"
                                     size="large"
                                     onClick={this.getData}
@@ -71,34 +70,34 @@ export default class ViewData extends React.Component {
                                     Search
                                 </Button>
                             </form>
-                        </Paper>
-                    </Grid>
-                    {this.state.data &&
-                        <Grid item xs={12}>
-                            <Paper elevation={styles.elevation}
-                                style={{
-                                    padding: '24px 0'
-                                }}>
+                            <Divider />
+                        </Grid>
+
+                        {this.state.data &&
+                            <Grid item xs={12}>
                                 <Grid container spacing={16}>
                                     <Grid item xs={12}>
                                         <Typography
-                                            variant="subheading"
+                                            variant="title"
                                         >Heart Rate vs. Time</Typography>
                                     </Grid>
                                     <Grid item xs={12}>
                                         <DataPlot data={this.state.data} />
                                     </Grid>
                                 </Grid>
-                            </Paper>
-                        </Grid>}
-                    {this.state.data &&
-                        <Grid item xs={12}>
-                            <Paper elevation={styles.elevation}>
-                                <DataTable data={this.state.data} />
-                            </Paper>
-                        </Grid>}
-                </Grid>
-            </div >
+                            </Grid>}
+                        {this.state.data &&
+                            < Grid item xs={12}>
+
+                                <Typography
+                                    variant="title"
+                                >Raw Data</Typography>
+                                < DataTable data={this.state.data} />
+                            </Grid>
+                        }
+                    </Grid >
+                </Paper >
+            </div>
         )
     }
 }

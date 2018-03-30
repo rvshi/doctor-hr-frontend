@@ -6,7 +6,7 @@ import CloseIcon from 'material-ui-icons/Close';
 const DataTable = ({ open, message, handleClose }) => {
     return (
         <Snackbar
-            anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
+            anchorOrigin={{ vertical: 'bottom', horizontal: 'left' }}
             open={open}
             onClose={handleClose}
             SnackbarContentProps={{

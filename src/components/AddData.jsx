@@ -34,7 +34,7 @@ export default class AddData extends React.Component {
     });
 
     render = () => {
-        const styles = this.props.styles;
+        const { styles } = this.props;
         return (
             <div style={styles.wrapper} >
                 <Grid container spacing={16}>
@@ -77,7 +77,6 @@ export default class AddData extends React.Component {
                                 />
 
                                 <Button
-                                    variant="raised"
                                     color="secondary"
                                     size="large"
                                     onClick={this.addData}
