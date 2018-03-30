@@ -1,5 +1,5 @@
 import React from 'react';
-import { getData } from '../requests';
+import { addData } from '../requests';
 
 import Grid from 'material-ui/Grid';
 import Paper from 'material-ui/Paper';
@@ -8,14 +8,13 @@ import TextField from 'material-ui/TextField';
 import Typography from 'material-ui/Typography';
 import Icon from 'material-ui/Icon';
 
-import DataTable from './DataTable';
-
-export default class ViewData extends React.Component {
+export default class AddData extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             email: 'me@harveyshi.com',
-            data: null,
+            age: 22,
+            hr: 60
         };
         this.update = this.update.bind(this);
     }
@@ -26,11 +25,11 @@ export default class ViewData extends React.Component {
         });
     };
 
-    getData = () => getData(this.state.email, (res) => {
+    addData = () => addData(this.state.email, this.state.age, this.state.hr, (res) => {
         if (res.status === 200) {
-            this.setState({ "data": res.data });
+            this.props.notify('Successfully added entry!');
         } else {
-            this.props.notify('User not found.')
+            this.props.notify('Some or all of your inputs are invalid.')
         }
     });
 
@@ -43,14 +42,13 @@ export default class ViewData extends React.Component {
                         <Paper elevation={2}
                             style={styles.paper}>
                             <form noValidate autoComplete="off">
-                                <Icon>remove_red_eye</Icon> <Icon>favorite_border</Icon>
+                                <Icon>add_circle</Icon> <Icon>favorite_border</Icon>
                                 <Typography
                                     variant="headline"
                                     color="inherit"
                                 >
-                                    View Heart Rate Data
+                                    Add Heart Rate Data
                                 </Typography>
-
                                 <TextField
                                     label="Email"
                                     value={this.state.email}
@@ -59,22 +57,36 @@ export default class ViewData extends React.Component {
                                     fullWidth={true}
                                     style={styles.items}
                                 />
+                                <TextField
+                                    label="Age"
+                                    value={this.state.age}
+                                    onChange={this.update('age')}
+                                    type="number"
+                                    margin="normal"
+                                    fullWidth={true}
+                                    style={styles.items}
+                                />
+                                <TextField
+                                    label="Heart Rate (bpm)"
+                                    value={this.state.hr}
+                                    onChange={this.update('hr')}
+                                    type="number"
+                                    margin="normal"
+                                    fullWidth={true}
+                                    style={styles.items}
+                                />
+
                                 <Button
                                     variant="raised"
                                     color="secondary"
                                     size="large"
-                                    onClick={this.getData}
+                                    onClick={this.addData}
                                     style={styles.items}>
-                                    Search
+                                    Add
                                 </Button>
                             </form>
                         </Paper>
                     </Grid>
-                    {this.state.data && <Grid item xs={12}>
-                        <Paper elevation={2}>
-                            <DataTable data={this.state.data} />
-                        </Paper>
-                    </Grid>}
                 </Grid>
             </div >
         )
