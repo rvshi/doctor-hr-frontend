@@ -12,7 +12,7 @@ export default class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      currentView: 2,
+      currentView: 0,
       open: false,
       message: '',
     };
