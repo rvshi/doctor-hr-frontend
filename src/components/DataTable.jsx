@@ -28,7 +28,7 @@ export default class DataTable extends React.Component {
             <Table>
                 <TableHead>
                     <TableRow>
-                        <TableCell>Date</TableCell>
+                        <TableCell>Timestamp</TableCell>
                         <TableCell numeric>Heart Rate (bpm)</TableCell>
                     </TableRow>
                 </TableHead>
