@@ -2,8 +2,6 @@ import React from 'react';
 
 import Grid from 'material-ui/Grid';
 import Paper from 'material-ui/Paper';
-import Button from 'material-ui/Button';
-import TextField from 'material-ui/TextField';
 import Typography from 'material-ui/Typography';
 import Icon from 'material-ui/Icon';
 import { endpoints } from '../api.js';
