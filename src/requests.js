@@ -1,8 +1,6 @@
 import axios from 'axios';
 
-const baseURL = process.env.NODE_ENV === 'production' ?
-    'localhost:5000' :
-    'http://hr.harveyshi.com:5000/api';
+const baseURL = 'http://hr.harveyshi.com:5000/api';
 
 export const addData =
     (email, age, hr, cb) => {
