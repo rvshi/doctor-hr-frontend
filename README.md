@@ -26,6 +26,4 @@ Heart Rate Dashboard is a frontend interface for interacting with my [Heart Rate
 ## Screenshots
 From left to right, database search, adding entries, and API usage.
 
-<img src="screenshots/view.png" width="32%" />
-<img src="screenshots/add.png" width="32%" />
-<img src="screenshots/api.png" width="32%" />
+<img src="screenshots/view.png" width="32%" /> <img src="screenshots/add.png" width="32%" /> <img src="screenshots/api.png" width="32%" />
