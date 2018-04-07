@@ -32,9 +32,8 @@ export default class ViewData extends React.Component {
     getData = () => getData(this.state.email, (res) => {
         if (res.status === 200) {
             this.setState({ "data": res.data.data.reverse() });
-            this.props.notify(`Data for ${this.state.email} loaded.`)
         } else {
-            this.props.notify('User not found.')
+            this.props.notify('User not found.');
         }
     });
 
